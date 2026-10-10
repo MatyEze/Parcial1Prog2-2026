@@ -44,6 +44,6 @@ public abstract class Vehiculo {
                 + " | Patente: " + patente
                 + " | Marca: " + marca
                 + " | Capacidad: " + capacidadPasajeros
-                + " | Año: " + anioFabricacion;
+                + " | Anio: " + anioFabricacion;
     }
 }
