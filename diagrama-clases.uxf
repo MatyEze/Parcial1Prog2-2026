@@ -1,11 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umletino" version="15.1">
-  <zoom_level>10</zoom_level>
-
-  <element>
-    <id>UMLClass</id>
-    <coordinates><x>40</x><y>90</y><w>280</w><h>100</h></coordinates>
-    <panel_attributes>Parcial1Prog22026
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>130</y><w>280</w><h>140</h></coordinates><panel_attributes>Parcial1Prog22026
 --
 _-gestor: GestorVehiculos_
 _-scanner: Scanner_
@@ -13,14 +6,7 @@ _-scanner: Scanner_
 _+main(args: String[]): void_
 _-mostrarMenu(): void_
 _-leerEntero(mensaje: String): int_
-_-altaVehiculo(): void_</panel_attributes>
-    <additional_attributes/>
-  </element>
-
-  <element>
-    <id>UMLClass</id>
-    <coordinates><x>400</x><y>90</y><w>360</w><h>270</h></coordinates>
-    <panel_attributes>/Vehiculo/
+_-altaVehiculo(): void_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>130</y><w>360</w><h>270</h></coordinates><panel_attributes>/Vehiculo/
 --
 -patente: String
 -marca: String
@@ -35,14 +21,7 @@ _-altaVehiculo(): void_</panel_attributes>
 +setCapacidadPasajeros(capacidad: int): void
 /+realizarServicio(): void/
 /+getTipo(): String/
-+toString(): String</panel_attributes>
-    <additional_attributes/>
-  </element>
-
-  <element>
-    <id>UMLClass</id>
-    <coordinates><x>820</x><y>90</y><w>400</w><h>250</h></coordinates>
-    <panel_attributes>GestorVehiculos
++toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>130</y><w>400</w><h>250</h></coordinates><panel_attributes>GestorVehiculos
 --
 -vehiculos: ArrayList&lt;Vehiculo&gt;
 --
@@ -55,34 +34,7 @@ _-altaVehiculo(): void_</panel_attributes>
 +mostrarOrdenadosPorAnioDesc(): void
 +mostrarOrdenadosPorCapacidadDesc(): void
 -existePatente(patente: String): boolean
--copiarLista(): ArrayList&lt;Vehiculo&gt;</panel_attributes>
-    <additional_attributes/>
-  </element>
-
-  <element>
-    <id>UMLClass</id>
-    <coordinates><x>1280</x><y>90</y><w>260</w><h>100</h></coordinates>
-    <panel_attributes>VehiculoException
---
---
-+VehiculoException(mensaje: String)</panel_attributes>
-    <additional_attributes/>
-  </element>
-
-  <element>
-    <id>UMLNote</id>
-    <coordinates><x>1280</x><y>210</y><w>260</w><h>70</h></coordinates>
-    <panel_attributes>Extiende de Exception.
-Se lanza cuando falla una
-validación en el alta.
-bg=yellow</panel_attributes>
-    <additional_attributes/>
-  </element>
-
-  <element>
-    <id>UMLClass</id>
-    <coordinates><x>140</x><y>480</y><w>300</w><h>150</h></coordinates>
-    <panel_attributes>ColectivoTuristico
+-copiarLista(): ArrayList&lt;Vehiculo&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>520</y><w>300</w><h>150</h></coordinates><panel_attributes>ColectivoTuristico
 --
 -cantidadPisos: int
 --
@@ -90,14 +42,7 @@ bg=yellow</panel_attributes>
 +getCantidadPisos(): int
 +realizarServicio(): void
 +getTipo(): String
-+toString(): String</panel_attributes>
-    <additional_attributes/>
-  </element>
-
-  <element>
-    <id>UMLClass</id>
-    <coordinates><x>520</x><y>480</y><w>300</w><h>150</h></coordinates>
-    <panel_attributes>VanEjecutiva
++toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>520</y><w>300</w><h>150</h></coordinates><panel_attributes>VanEjecutiva
 --
 -aireAcondicionado: boolean
 --
@@ -105,87 +50,16 @@ bg=yellow</panel_attributes>
 +isAireAcondicionado(): boolean
 +realizarServicio(): void
 +getTipo(): String
-+toString(): String</panel_attributes>
-    <additional_attributes/>
-  </element>
-
-  <element>
-    <id>UMLClass</id>
-    <coordinates><x>900</x><y>480</y><w>300</w><h>150</h></coordinates>
-    <panel_attributes>LanchaTuristica
++toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>840</x><y>520</y><w>410</w><h>170</h></coordinates><panel_attributes>LanchaTuristica
 --
--tipoMotor: TipoMotor
+-tipoMotor: String
 --
-+LanchaTuristica(..., tipoMotor: TipoMotor)
-+getTipoMotor(): TipoMotor
++LanchaTuristica(..., tipoMotor: String)
++getTipoMotor(): String
+-validarTipoMotor(tipoMotor: String): String
 +realizarServicio(): void
 +getTipo(): String
-+toString(): String</panel_attributes>
-    <additional_attributes/>
-  </element>
-
-  <element>
-    <id>UMLClass</id>
-    <coordinates><x>1260</x><y>480</y><w>200</w><h>130</h></coordinates>
-    <panel_attributes>&lt;&lt;enumeration&gt;&gt;
-TipoMotor
---
-NAFTA
-DIESEL
-ELECTRICO</panel_attributes>
-    <additional_attributes/>
-  </element>
-
-  <element>
-    <id>Relation</id>
-    <coordinates><x>280</x><y>350</y><w>320</w><h>150</h></coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>300.0;10.0;300.0;60.0;10.0;60.0;10.0;130.0</additional_attributes>
-  </element>
-
-  <element>
-    <id>Relation</id>
-    <coordinates><x>570</x><y>350</y><w>120</w><h>150</h></coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0;100.0;60.0;100.0;130.0</additional_attributes>
-  </element>
-
-  <element>
-    <id>Relation</id>
-    <coordinates><x>570</x><y>350</y><w>500</w><h>150</h></coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0;480.0;60.0;480.0;130.0</additional_attributes>
-  </element>
-
-  <element>
-    <id>Relation</id>
-    <coordinates><x>750</x><y>200</y><w>90</w><h>50</h></coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
++toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>390</y><w>320</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>300;10;300;60;10;60;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>390</y><w>120</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;100;60;100;130</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>390</y><w>500</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;480;60;480;130</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>250</y><w>100</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=1
-m2=0..*</panel_attributes>
-    <additional_attributes>80.0;25.0;10.0;25.0</additional_attributes>
-  </element>
-
-  <element>
-    <id>Relation</id>
-    <coordinates><x>310</x><y>20</y><w>530</w><h>150</h></coordinates>
-    <panel_attributes>lt=.&gt;
-&lt;&lt;usa&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;120.0;50.0;120.0;50.0;10.0;470.0;10.0;470.0;140.0;510.0;140.0</additional_attributes>
-  </element>
-
-  <element>
-    <id>Relation</id>
-    <coordinates><x>1210</x><y>130</y><w>80</w><h>30</h></coordinates>
-    <panel_attributes>lt=.&gt;
-&lt;&lt;throws&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
-  </element>
-
-  <element>
-    <id>Relation</id>
-    <coordinates><x>1190</x><y>535</y><w>80</w><h>30</h></coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
-  </element>
-</diagram>
+m2=0..*</panel_attributes><additional_attributes>80;15;10;15</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>50</y><w>510</w><h>170</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;usa&gt;&gt;</panel_attributes><additional_attributes>10;130;30;130;30;20;450;20;450;150;490;150</additional_attributes></element></diagram>
