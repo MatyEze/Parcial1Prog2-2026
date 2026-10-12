@@ -9,8 +9,9 @@ _-leerEntero(mensaje: String): int_
 _-leerTexto(mensaje: String): String_
 _-leerBooleano(mensaje: String): boolean_
 _-altaVehiculo(): void_
-_-buscarVehiculo(): void_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>130</y><w>360</w><h>270</h></coordinates><panel_attributes>/Vehiculo/
+_-buscarVehiculo(): void_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>130</y><w>360</w><h>330</h></coordinates><panel_attributes>/Vehiculo/
 --
+_-ANIO_MINIMO: int = 1990_
 -patente: String
 -marca: String
 -capacidadPasajeros: int
@@ -22,6 +23,9 @@ _-buscarVehiculo(): void_</panel_attributes><additional_attributes></additional_
 +getCapacidadPasajeros(): int
 +getAnioFabricacion(): int
 +setCapacidadPasajeros(capacidad: int): void
+-validarPatente(patente: String): String
+-validarCapacidad(capacidad: int): int
+-validarAnio(anio: int): int
 /+realizarServicio(): void/
 /+getTipo(): String/
 +toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>130</y><w>400</w><h>250</h></coordinates><panel_attributes>GestorVehiculos
@@ -37,15 +41,16 @@ _-buscarVehiculo(): void_</panel_attributes><additional_attributes></additional_
 +mostrarOrdenadosPorAnioDesc(): void
 +mostrarOrdenadosPorCapacidadDesc(): void
 -existePatente(patente: String): boolean
--copiarLista(): ArrayList&lt;Vehiculo&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>520</y><w>300</w><h>150</h></coordinates><panel_attributes>ColectivoTuristico
+-copiarLista(): ArrayList&lt;Vehiculo&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>580</y><w>300</w><h>170</h></coordinates><panel_attributes>ColectivoTuristico
 --
 -cantidadPisos: int
 --
 +ColectivoTuristico(..., cantidadPisos: int)
 +getCantidadPisos(): int
+-validarCantidadPisos(pisos: int): int
 +realizarServicio(): void
 +getTipo(): String
-+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>520</y><w>300</w><h>150</h></coordinates><panel_attributes>VanEjecutiva
++toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>580</y><w>300</w><h>150</h></coordinates><panel_attributes>VanEjecutiva
 --
 -aireAcondicionado: boolean
 --
@@ -53,7 +58,7 @@ _-buscarVehiculo(): void_</panel_attributes><additional_attributes></additional_
 +isAireAcondicionado(): boolean
 +realizarServicio(): void
 +getTipo(): String
-+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>840</x><y>520</y><w>410</w><h>170</h></coordinates><panel_attributes>LanchaTuristica
++toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>840</x><y>580</y><w>410</w><h>170</h></coordinates><panel_attributes>LanchaTuristica
 --
 -tipoMotor: String
 --
@@ -62,7 +67,7 @@ _-buscarVehiculo(): void_</panel_attributes><additional_attributes></additional_
 -validarTipoMotor(tipoMotor: String): String
 +realizarServicio(): void
 +getTipo(): String
-+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>390</y><w>320</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>300;10;300;60;10;60;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>390</y><w>120</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;100;60;100;130</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>390</y><w>500</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;480;60;480;130</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>250</y><w>100</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
++toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>450</y><w>320</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>300;10;300;60;10;60;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>450</y><w>120</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;100;60;100;130</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>450</y><w>500</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;480;60;480;130</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>250</y><w>100</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=1
 m2=0..*</panel_attributes><additional_attributes>80;15;10;15</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>50</y><w>510</w><h>170</h></coordinates><panel_attributes>lt=.&gt;
 &lt;&lt;usa&gt;&gt;</panel_attributes><additional_attributes>10;130;30;130;30;20;450;20;450;150;490;150</additional_attributes></element></diagram>

@@ -4,12 +4,19 @@ public class ColectivoTuristico extends Vehiculo {
 
     private int cantidadPisos;
 
-    public ColectivoTuristico(String patente, String marca, int capacidadPasajeros, int anioFabricacion, int cantidadPisos) {
+    public ColectivoTuristico(String patente, String marca, int capacidadPasajeros, int anioFabricacion, int cantidadPisos) throws VehiculoException {
         super(patente, marca, capacidadPasajeros, anioFabricacion);
-        this.cantidadPisos = cantidadPisos;
+        this.cantidadPisos = validarCantidadPisos(cantidadPisos);
     }
 
     public int getCantidadPisos() {
+        return cantidadPisos;
+    }
+
+    private int validarCantidadPisos(int cantidadPisos) throws VehiculoException {
+        if (cantidadPisos != 1 && cantidadPisos != 2) {
+            throw new VehiculoException("La cantidad de pisos debe ser 1 o 2.");
+        }
         return cantidadPisos;
     }
 

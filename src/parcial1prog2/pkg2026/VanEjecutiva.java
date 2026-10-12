@@ -4,7 +4,7 @@ public class VanEjecutiva extends Vehiculo {
 
     private boolean aireAcondicionado;
 
-    public VanEjecutiva(String patente, String marca, int capacidadPasajeros, int anioFabricacion, boolean aireAcondicionado) {
+    public VanEjecutiva(String patente, String marca, int capacidadPasajeros, int anioFabricacion, boolean aireAcondicionado) throws VehiculoException {
         super(patente, marca, capacidadPasajeros, anioFabricacion);
         this.aireAcondicionado = aireAcondicionado;
     }
