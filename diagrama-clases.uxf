@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>130</y><w>280</w><h>140</h></coordinates><panel_attributes>Parcial1Prog22026
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>130</y><w>280</w><h>170</h></coordinates><panel_attributes>Parcial1Prog22026
 --
 _-gestor: GestorVehiculos_
 _-scanner: Scanner_
@@ -6,7 +6,10 @@ _-scanner: Scanner_
 _+main(args: String[]): void_
 _-mostrarMenu(): void_
 _-leerEntero(mensaje: String): int_
-_-altaVehiculo(): void_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>130</y><w>360</w><h>270</h></coordinates><panel_attributes>/Vehiculo/
+_-leerTexto(mensaje: String): String_
+_-leerBooleano(mensaje: String): boolean_
+_-altaVehiculo(): void_
+_-buscarVehiculo(): void_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>130</y><w>360</w><h>270</h></coordinates><panel_attributes>/Vehiculo/
 --
 -patente: String
 -marca: String
