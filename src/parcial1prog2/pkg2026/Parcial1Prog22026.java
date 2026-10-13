@@ -1,5 +1,6 @@
 package parcial1prog2.pkg2026;
 
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Parcial1Prog22026 {
@@ -12,6 +13,10 @@ public class Parcial1Prog22026 {
         while (opcion != 8) {
             mostrarMenu();
             opcion = leerEntero("Opcion: ");
+            if (opcion >= 2 && opcion <= 7 && !gestor.hayVehiculos()) {
+                System.out.println("No hay vehiculos cargados. Agregue un vehiculo primero (opcion 1).");
+                continue;
+            }
             switch (opcion) {
                 case 1:
                     altaVehiculo();
@@ -26,7 +31,7 @@ public class Parcial1Prog22026 {
                     buscarVehiculo();
                     break;
                 case 5:
-                    gestor.mostrarConCapacidadMayorA(leerEntero("Mostrar vehiculos con capacidad mayor a: "));
+                    gestor.mostrarConCapacidadMayorA(leerEnteroMinimo("Mostrar vehiculos con capacidad mayor a: ", 1));
                     break;
                 case 6:
                     gestor.mostrarOrdenadosPorAnioDesc();
@@ -69,9 +74,59 @@ public class Parcial1Prog22026 {
         }
     }
 
+    private static int leerEnteroMinimo(String mensaje, int minimo) {
+        while (true) {
+            int valor = leerEntero(mensaje);
+            if (valor >= minimo) {
+                return valor;
+            }
+            System.out.println("Entrada invalida: el valor no puede ser menor a " + minimo + ".");
+        }
+    }
+
+    private static int leerEnteroEnRango(String mensaje, int minimo, int maximo) {
+        while (true) {
+            int valor = leerEnteroMinimo(mensaje, minimo);
+            if (valor <= maximo) {
+                return valor;
+            }
+            System.out.println("Entrada invalida: el valor no puede ser mayor a " + maximo + ".");
+        }
+    }
+
     private static String leerTexto(String mensaje) {
         System.out.print(mensaje);
         return scanner.nextLine().trim();
+    }
+
+    private static String leerTextoObligatorio(String mensaje) {
+        while (true) {
+            String entrada = leerTexto(mensaje);
+            if (!entrada.isEmpty()) {
+                return entrada;
+            }
+            System.out.println("Entrada invalida: este dato no puede estar vacio.");
+        }
+    }
+
+    private static String leerPatenteNueva() {
+        while (true) {
+            String patente = leerTextoObligatorio("Patente: ");
+            if (gestor.buscarPorPatente(patente) == null) {
+                return patente;
+            }
+            System.out.println("Ya existe un vehiculo con la patente " + patente.toUpperCase() + ". Ingrese otra.");
+        }
+    }
+
+    private static String leerTipoMotor() {
+        while (true) {
+            String motor = leerTexto("Tipo de motor (NAFTA, DIESEL o ELECTRICO): ");
+            if (LanchaTuristica.esTipoMotorValido(motor)) {
+                return motor;
+            }
+            System.out.println("Tipo de motor invalido. Debe ser NAFTA, DIESEL o ELECTRICO.");
+        }
     }
 
     private static boolean leerBooleano(String mensaje) {
@@ -89,20 +144,17 @@ public class Parcial1Prog22026 {
 
     private static void altaVehiculo() {
         System.out.println("Tipo de vehiculo: 1. Colectivo  2. Van  3. Lancha");
-        int tipo = leerEntero("Tipo: ");
-        if (tipo < 1 || tipo > 3) {
-            System.out.println("Tipo invalido. Ingrese 1, 2 o 3.");
-            return;
-        }
-        String patente = leerTexto("Patente: ");
-        String marca = leerTexto("Marca: ");
-        int capacidad = leerEntero("Capacidad de pasajeros: ");
-        int anio = leerEntero("Anio de fabricacion: ");
+        int tipo = leerEnteroEnRango("Tipo: ", 1, 3);
+        String patente = leerPatenteNueva();
+        String marca = leerTextoObligatorio("Marca: ");
+        int capacidad = leerEnteroMinimo("Capacidad de pasajeros: ", 1);
+        int anioActual = Calendar.getInstance().get(Calendar.YEAR);
+        int anio = leerEnteroEnRango("Anio de fabricacion: ", Vehiculo.ANIO_MINIMO, anioActual);
         try {
             Vehiculo vehiculo;
             switch (tipo) {
                 case 1:
-                    int pisos = leerEntero("Cantidad de pisos (1 o 2): ");
+                    int pisos = leerEnteroEnRango("Cantidad de pisos (1 o 2): ", 1, 2);
                     vehiculo = new ColectivoTuristico(patente, marca, capacidad, anio, pisos);
                     break;
                 case 2:
@@ -110,7 +162,7 @@ public class Parcial1Prog22026 {
                     vehiculo = new VanEjecutiva(patente, marca, capacidad, anio, aire);
                     break;
                 default:
-                    String motor = leerTexto("Tipo de motor (NAFTA, DIESEL o ELECTRICO): ");
+                    String motor = leerTipoMotor();
                     vehiculo = new LanchaTuristica(patente, marca, capacidad, anio, motor);
                     break;
             }

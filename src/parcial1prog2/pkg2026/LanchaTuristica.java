@@ -13,15 +13,22 @@ public class LanchaTuristica extends Vehiculo {
         return tipoMotor;
     }
 
+    public static boolean esTipoMotorValido(String tipoMotor) {
+        if (tipoMotor == null) {
+            return false;
+        }
+        String normalizado = tipoMotor.trim().toUpperCase();
+        return normalizado.equals("NAFTA") || normalizado.equals("DIESEL") || normalizado.equals("ELECTRICO");
+    }
+
     private String validarTipoMotor(String tipoMotor) throws VehiculoException {
         if (tipoMotor == null || tipoMotor.trim().isEmpty()) {
             throw new VehiculoException("El tipo de motor es obligatorio.");
         }
-        String normalizado = tipoMotor.trim().toUpperCase();
-        if (!normalizado.equals("NAFTA") && !normalizado.equals("DIESEL") && !normalizado.equals("ELECTRICO")) {
+        if (!esTipoMotorValido(tipoMotor)) {
             throw new VehiculoException("Tipo de motor invalido: " + tipoMotor + ". Debe ser NAFTA, DIESEL o ELECTRICO.");
         }
-        return normalizado;
+        return tipoMotor.trim().toUpperCase();
     }
 
     @Override

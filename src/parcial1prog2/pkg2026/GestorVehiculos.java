@@ -17,6 +17,10 @@ public class GestorVehiculos {
         vehiculos.add(v);
     }
 
+    public boolean hayVehiculos() {
+        return !vehiculos.isEmpty();
+    }
+
     public void mostrarTodos() {
         mostrarLista(vehiculos);
     }

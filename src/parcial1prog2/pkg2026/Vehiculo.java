@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public abstract class Vehiculo {
 
-    private static final int ANIO_MINIMO = 1990;
+    public static final int ANIO_MINIMO = 1990;
 
     private String patente;
     private String marca;
@@ -13,7 +13,7 @@ public abstract class Vehiculo {
 
     public Vehiculo(String patente, String marca, int capacidadPasajeros, int anioFabricacion) throws VehiculoException {
         this.patente = validarPatente(patente);
-        this.marca = marca == null ? "" : marca.trim();
+        this.marca = validarMarca(marca);
         this.capacidadPasajeros = validarCapacidad(capacidadPasajeros);
         this.anioFabricacion = validarAnio(anioFabricacion);
     }
@@ -43,6 +43,13 @@ public abstract class Vehiculo {
             throw new VehiculoException("La patente no puede estar vacia.");
         }
         return patente.trim().toUpperCase();
+    }
+
+    private String validarMarca(String marca) throws VehiculoException {
+        if (marca == null || marca.trim().isEmpty()) {
+            throw new VehiculoException("La marca no puede estar vacia.");
+        }
+        return marca.trim();
     }
 
     private int validarCapacidad(int capacidad) throws VehiculoException {

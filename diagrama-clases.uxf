@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>130</y><w>280</w><h>170</h></coordinates><panel_attributes>Parcial1Prog22026
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>130</y><w>390</w><h>260</h></coordinates><panel_attributes>Parcial1Prog22026
 --
 _-gestor: GestorVehiculos_
 _-scanner: Scanner_
@@ -6,12 +6,17 @@ _-scanner: Scanner_
 _+main(args: String[]): void_
 _-mostrarMenu(): void_
 _-leerEntero(mensaje: String): int_
+_-leerEnteroMinimo(mensaje: String, minimo: int): int_
+_-leerEnteroEnRango(mensaje: String, minimo: int, maximo: int): int_
 _-leerTexto(mensaje: String): String_
+_-leerTextoObligatorio(mensaje: String): String_
+_-leerPatenteNueva(): String_
+_-leerTipoMotor(): String_
 _-leerBooleano(mensaje: String): boolean_
 _-altaVehiculo(): void_
-_-buscarVehiculo(): void_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>130</y><w>360</w><h>330</h></coordinates><panel_attributes>/Vehiculo/
+_-buscarVehiculo(): void_</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>430</x><y>130</y><w>360</w><h>345</h></coordinates><panel_attributes>/Vehiculo/
 --
-_-ANIO_MINIMO: int = 1990_
+_+ANIO_MINIMO: int = 1990_
 -patente: String
 -marca: String
 -capacidadPasajeros: int
@@ -24,16 +29,18 @@ _-ANIO_MINIMO: int = 1990_
 +getAnioFabricacion(): int
 +setCapacidadPasajeros(capacidad: int): void
 -validarPatente(patente: String): String
+-validarMarca(marca: String): String
 -validarCapacidad(capacidad: int): int
 -validarAnio(anio: int): int
 /+realizarServicio(): void/
 /+getTipo(): String/
-+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>130</y><w>400</w><h>250</h></coordinates><panel_attributes>GestorVehiculos
++toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>990</x><y>130</y><w>400</w><h>295</h></coordinates><panel_attributes>GestorVehiculos
 --
 -vehiculos: ArrayList&lt;Vehiculo&gt;
 --
 +GestorVehiculos()
 +agregarVehiculo(v: Vehiculo): void
++hayVehiculos(): boolean
 +mostrarTodos(): void
 +realizarServicios(): void
 +buscarPorPatente(patente: String): Vehiculo
@@ -41,7 +48,9 @@ _-ANIO_MINIMO: int = 1990_
 +mostrarOrdenadosPorAnioDesc(): void
 +mostrarOrdenadosPorCapacidadDesc(): void
 -existePatente(patente: String): boolean
--copiarLista(): ArrayList&lt;Vehiculo&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>580</y><w>300</w><h>170</h></coordinates><panel_attributes>ColectivoTuristico
+-copiarLista(): ArrayList&lt;Vehiculo&gt;
+-intercambiar(lista: ArrayList&lt;Vehiculo&gt;, i: int, j: int): void
+-mostrarLista(lista: ArrayList&lt;Vehiculo&gt;): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>580</y><w>300</w><h>170</h></coordinates><panel_attributes>ColectivoTuristico
 --
 -cantidadPisos: int
 --
@@ -50,7 +59,7 @@ _-ANIO_MINIMO: int = 1990_
 -validarCantidadPisos(pisos: int): int
 +realizarServicio(): void
 +getTipo(): String
-+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>580</y><w>300</w><h>150</h></coordinates><panel_attributes>VanEjecutiva
++toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>580</y><w>300</w><h>170</h></coordinates><panel_attributes>VanEjecutiva
 --
 -aireAcondicionado: boolean
 --
@@ -58,16 +67,17 @@ _-ANIO_MINIMO: int = 1990_
 +isAireAcondicionado(): boolean
 +realizarServicio(): void
 +getTipo(): String
-+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>840</x><y>580</y><w>410</w><h>170</h></coordinates><panel_attributes>LanchaTuristica
++toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>840</x><y>580</y><w>410</w><h>175</h></coordinates><panel_attributes>LanchaTuristica
 --
 -tipoMotor: String
 --
 +LanchaTuristica(..., tipoMotor: String)
 +getTipoMotor(): String
+_+esTipoMotorValido(tipoMotor: String): boolean_
 -validarTipoMotor(tipoMotor: String): String
 +realizarServicio(): void
 +getTipo(): String
-+toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>450</y><w>320</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>300;10;300;60;10;60;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>450</y><w>120</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;100;60;100;130</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>450</y><w>500</w><h>150</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;480;60;480;130</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>250</y><w>100</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
++toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>465</y><w>410</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>390;10;390;60;10;60;10;115</additional_attributes></element><element><id>Relation</id><coordinates><x>600</x><y>465</y><w>30</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;115</additional_attributes></element><element><id>Relation</id><coordinates><x>600</x><y>465</y><w>410</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;390;60;390;115</additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>260</y><w>230</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
 m1=1
-m2=0..*</panel_attributes><additional_attributes>80;15;10;15</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>50</y><w>510</w><h>170</h></coordinates><panel_attributes>lt=.&gt;
-&lt;&lt;usa&gt;&gt;</panel_attributes><additional_attributes>10;130;30;130;30;20;450;20;450;150;490;150</additional_attributes></element></diagram>
+m2=0..*</panel_attributes><additional_attributes>210;15;10;15</additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>50</y><w>630</w><h>170</h></coordinates><panel_attributes>lt=.&gt;
+&lt;&lt;usa&gt;&gt;</panel_attributes><additional_attributes>10;130;20;130;20;20;510;20;510;150;610;150</additional_attributes></element></diagram>
